@@ -1,0 +1,13 @@
+version: "3"
+services:
+  kicad:
+    image: goropikari/kicad:${KICAD_VERSION:-latest}
+    environment:
+      - DISPLAY=$DISPLAY
+    network_mode: "host"
+    volumes:
+      - $HOME/.Xauthority:/home/ubuntu/.Xauthority
+      - $KICAD_PROJECT:/home/ubuntu/kicad
+
+    tty: true
+    stdin_open: true
